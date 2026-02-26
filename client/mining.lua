@@ -45,7 +45,7 @@ local function mineOre(zoneId, oreId)
     local metadata = lib.callback.await('lation_mining:getmetadata', false, item)
     local metatype = GetDurabilityType()
     local degrade = shared.pickaxes[level].degrade
-    if not metadata or not metadata[metatype] or metadata[metatype] < degrade then
+    if not metadata or not metadata[metatype] or metadata[metatype] <= degrade then
         ShowNotification(locale('notify.pickaxe-no-durability'), 'error')
         return
     end
